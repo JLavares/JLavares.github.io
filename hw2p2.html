@@ -30,27 +30,27 @@
             function process()
             {
             
-            var number1, number2, number3, n1, n2, n3, sum, multi, avg, small, large;
+                var number1, number2, number3, n1, n2, n3, sum, multi, avg, small, large;
             
-            number1 = document.forms["myform"].elements["num1"].value;
-            number2 = document.forms["myform"].elements["num2"].value;
-            number3 = document.forms["myform"].elements["num3"].value;
+                number1 = document.forms["myform"].elements["num1"].value;
+                number2 = document.forms["myform"].elements["num2"].value;
+                number3 = document.forms["myform"].elements["num3"].value;
             
-            n1 = parseInt(number1);
-            n2 = parseInt(number2);
-            n3 = parseInt(number3);
+                n1 = parseInt(number1);
+                n2 = parseInt(number2);
+                n3 = parseInt(number3);
             
-            sum = n1 + n2 + n3; 
-            multi = n1 * n2 * n3; 
-            avg = sum / 3;
-            small = Math.min(n1, n2, n3); 
-            large = Math.max(n1, n2, n3); 
+                sum = n1 + n2 + n3; 
+                multi = n1 * n2 * n3; 
+                avg = sum / 3;
+                small = Math.min(n1, n2, n3); 
+                large = Math.max(n1, n2, n3); 
 
-            document.forms["myform"].elements["result0"].value = sum;
-            document.forms["myform"].elements["result1"].value = multi;
-            document.forms["myform"].elements["result2"].value = avg;
-            document.forms["myform"].elements["result3"].value = small;
-            document.forms["myform"].elements["result4"].value = large;
+                document.forms["myform"].elements["result0"].value = sum;
+                document.forms["myform"].elements["result1"].value = multi;
+                document.forms["myform"].elements["result2"].value = avg;
+                document.forms["myform"].elements["result3"].value = small;
+                document.forms["myform"].elements["result4"].value = large;
             }
          </script>
       
