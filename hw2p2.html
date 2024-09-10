@@ -39,7 +39,12 @@
                 n1 = parseInt(number1);
                 n2 = parseInt(number2);
                 n3 = parseInt(number3);
-            
+
+                if (isNaN(n1), isNaN(n2), isNaN(n3)) {
+                    alert("Please input valid numbers!")
+                    return;
+                }
+                
                 sum = n1 + n2 + n3; 
                 multi = n1 * n2 * n3; 
                 avg = sum / 3;
