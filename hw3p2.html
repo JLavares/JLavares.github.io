@@ -35,12 +35,7 @@
                 let item3 = parseFloat(document.querySelector("#item3").value) || 0;
                 let item4 = parseFloat(document.querySelector("#item4").value) || 0;
 
-                 if (isNaN(item1), isNaN(item2), isNaN(item3), isNaN(item4)) {
-                    alert("Please input valid numbers!")
-                    return;
-                }
-
-                if (item1 < 0, item2 < 0, item3 < 0, item4 < 0) {
+                if (item1 < 0 && item2 < 0 && item3 < 0 && item4 < 0) {
                     alert("Don't input negative numbers");
                     return;
                 }
