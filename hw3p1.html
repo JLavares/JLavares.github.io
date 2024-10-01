@@ -51,12 +51,15 @@
                     document.querySelector("#showdata").innerHTML
                         = "Please enters a valid numeric values and fill all the blanks";
                 }
+                    
                 else {
                     if (percentage >= 69.5){
-                        document.querySelector("#showdata").innerHTML = ` Your grade is a "${grade}". Congratulatuions, You Pass!`;
+                        document.querySelector("#showdata").innerHTML = ` You have an average percentage of ${percentage.toFixed(2)}% and received a grade of "${grade}". 
+                        Congratulations, You Passed!`;
                     }
                     else {
-                        document.querySelector("#showdata").innerHTML = ` Your grade is a "${grade}". Student must retake the class!`;
+                         document.querySelector("#showdata").innerHTML = ` Your have an average percentage of ${percentage.toFixed(2)}% and received a grade of "${grade}". 
+                        You Failed, the student must retake the class!`;
                     }
                     
                 }
