@@ -35,12 +35,21 @@
                 let item3 = parseFloat(document.querySelector("#item3").value) || 0;
                 let item4 = parseFloat(document.querySelector("#item4").value) || 0;
 
+                 if (isNaN(item1), isNaN(item2), isNaN(item3), isNaN(item4)) {
+                    alert("Please input valid numbers!")
+                    return;
+                }
+
+                if (item1 < 0, item2 < 0, item3 < 0, item4 < 0) {
+                    alert("Don't input negative numbers");
+                    return;
+                }
+                
                 const price1 = 20.99;
                 const price2 = 12.75;
                 const price3 = 9.95;
                 const price4 = 35.89;
                 
-
                 let item1T = item1 * price1;
                 let item2T = item2 * price2;
                 let item3T = item3 * price3;
@@ -61,7 +70,7 @@
                 document.querySelector("#item3S").value = item3T.toFixed(2);
                 document.querySelector("#item4S").value = item4T.toFixed(2);
 
-                document.querySelector("#TAS").value = totalAS;
+                document.querySelector("#TAS").value = totalAS.toFixed(2);
                 document.querySelector("#TWE").value = totalWE.toFixed(2);
             }
         </script>
