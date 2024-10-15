@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Homework 4 Part 1 JavaScript Exercise">
+        <link rel="stylesheet" href="styles.css">
+        <title>Lavares Homework 4 Webpage</title>
+
+        <style>
+            body {
+                background-image: none;
+                background-color: rgb(177, 126, 93);
+            }
+            
+        </style>
+
+    </head>
+
+    <body>
+    
+        <header>
+          
+            <h1>Homework 4 Part 1</h1>
+           
+        </header>
+
+        <section> 
+
+            <h2>Calculations!</h2>
+            <p> Go back to the mainpage: <a href="hw1.html">Homepage</a></p>
+            <p> Click on these webpages to go back or explore more: <a href="hw4p1.html">Part 1 </a>, <a href="hw4p2.html">Part 2 </a>, or <a href="hw4p3.html">Extra Credit</a></p>
+            <p> In this webpage using the for, while, or the do-while statements, it will calculate the integers</p>
+
+            <p> The Multiplication Result (For Statement): </p>
+            <p id ="showdatam"></p>
+
+            <p> The Sum Result (For Statement): </p>
+            <p id ="showdatas"></p>
+
+            <p> The Multiplication Result (Do-While Statement): </p>
+            <p id ="showdatam1"></p>
+
+            <p> The Sum Result (Do-While Statement): </p>
+            <p id ="showdatas1"></p>
+            
+        </section>
+
+        <script>
+            let arr = [5, 9, 13, 17, 21, 25]
+            let arr1 = [3, 6, 9, 12, 15, 18]
+
+            let sum = 0;
+            let multi = 1;
+
+            let sum1 = 2;
+            let multi1 = 3;
+
+            let k = 0;
+
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+
+            for (let j = 0; j < arr.length; j++) {
+                multi *= arr[j];
+            }
+
+            do {
+                sum1 += arr1[k];
+                multi1 *= arr1[k];
+                k++;
+
+            } while(k < arr1.length);
+
+            document.querySelector("#showdatam").innerHTML = `The result of 5 * 9 * 13 * 17 * 21 * 25 is: ${multi.toLocaleString()}`; 
+
+            document.querySelector("#showdatas").innerHTML = `The result of 5 + 9 + 13 + 17 + 21 + 25 is: ${sum.toLocaleString()}`; 
+
+            document.querySelector("#showdatam1").innerHTML = `The result of 5 * 9 * 13 * 17 * 21 * 25 is: ${multi1.toLocaleString()}`; 
+
+            document.querySelector("#showdatas1").innerHTML = `The result of 5 + 9 + 13 + 17 + 21 + 25 is: ${sum1.toLocaleString()}`; 
+        
+        </script>
+
+    </body>
+</html>       
