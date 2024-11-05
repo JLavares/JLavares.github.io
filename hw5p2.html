@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Homework 4 Part 2 JavaScript Exercise">
+        <link rel="stylesheet" href="stylehw4.css">
+        <title>Lavares Homework 5 Webpage</title>
+
+        <style>
+            body {
+                background-image: none;
+                background-color: rgb(177, 126, 93);
+            }
+            
+        </style>
+
+    </head>
+
+    <body>
+    
+        <header>
+          
+            <h1>Homework 5 Part 2</h1>
+           
+        </header>
+
+        <section> 
+
+            <h2>Dropdown Menus</h2>
+            <p> Go back to the mainpage: <a href="hw1.html">Homepage</a></p>
+            <p> Click on these webpages to go back or explore more: <a href="hw5p1.html">Part 1 </a>, <a href="hw5p3.html">Extra Credit </a>, or <a href="hw5.html">HW5 Homepage</a></p>
+            <p> Choose a website to go enter!</p>
+
+            <div class ="form2">
+                <form action="/action_page.php" method="post" onsubmit="return-false;">
+
+                        <label for="dropDown1">First Dropdown Menu:</label><br>
+                        <select id="dropDown1" onchange="(this.value)">
+                            <option value="">Choose a website</option>
+                            <option value="http://www.yahoo.com/">Yahoo</option>
+                            <option value="http://www.google.com/">Google</option>
+                            <option value="https://www.wikipedia.org/">Wikipedia</option>
+                        </select>
+
+                        <br> <br> <button onclick="openTab(document.getElementById('dropDown1').value); return false;">Submit</button>
+
+                    <br> <br> <label for="dropDown2">Second Dropdown Menu:</label><br>
+                        <select id="dropDown2" onchange="(this.value)">
+                            <option value="">Choose a website</option>
+                            <option value="https://www.w3schools.com/">W3Schools</option>
+                            <option value="https://www.youtube.com/">YouTube</option>
+                            <option value="https://www.twitch.tv/">Twitch</option>
+                        </select>
+
+                    <br> <br> <button onclick="openTab(document.getElementById('dropDown2').value); return false;">Submit</button>
+                    </form>
+            </div>
+
+            <script>
+                function openTab (url) {
+                    if (url) {
+                        window.open(url, "_blank");
+                    }
+                }   
+
+            </script>
+
+        </section>
+
+    </body>
+</html>       

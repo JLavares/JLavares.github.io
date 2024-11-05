@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Homework 4 Part 1 JavaScript Exercise">
+        <link rel="stylesheet" href="styles.css">
+        <title>Lavares Homework 5 Webpage</title>
+
+        <style>
+            body {
+                background-image: none;
+                background-color: rgb(177, 126, 93);
+            }
+            
+        </style>
+
+    </head>
+
+    <body>
+    
+        <header>
+          
+            <h1>Homework 5 Part 1</h1>
+           
+        </header>
+
+        <section> 
+            <h2>User Information Form</h2>
+            <p> Go back to the mainpage: <a href="hw1.html">Homepage</a></p>
+            <p> Click on these webpages to go back or explore more: <a href="hw5p2.html">Part 2 </a>, <a href="hw5p3.html">Extra Credit </a>, or <a href="hw5.html">HW5 Homepage</a></p>
+            <p> In this webpage, this form will be collecting your data</p>
+            
+            <div class="form">
+                <form name="userForm" onsubmit="return validateForm()">
+
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" name="name" id="fullName"> <br><br>
+
+                    <label>Age Group:</label><br>
+                    Under 21: <input type="checkbox" id="under21" name="ageGroup" value="Under 21">
+                    Between 21-50: <input type="checkbox" id="between21and50" name="ageGroup" value="Between 21 and 50">
+                    Over 50: <input type="checkbox" id="older50" name="ageGroup" value="Over 50">
+                    
+                    <br> <br> <label>Browsers Used:</label><br>
+                    Firefox :<input type="checkbox" id="firefox" name="browser" value="Firefox">
+                    Edge: <input type="checkbox" id="edge" name="browser" value="Edge">
+                    Chrome: <input type="checkbox" id="chrome" name="browser" value="Chrome">
+                    Safari: <input type="checkbox" id="safari" name="browser" value="Safari">
+                    
+                    <br> <br> <label for="moviePreferences">Movie Preferences:</label><br>
+                        <select id="moviePreferences" name="moviePreferences">
+                            <option value="">Choose Movie Type</option>
+                            <option value="Action">Action</option>
+                            <option value="Comedy">Comedy</option>
+                            <option value="Drama">Drama</option>
+                            <option value="Documentary">Documentary</option>
+                            <option value="Science Fiction">Science Fiction</option>
+                        </select>
+            
+                        <br> <br>
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </form>
+            </div>
+
+            <div id="result"></div>
+            
+        </section>
+
+        <script>
+            function validateForm() {
+                const name = document.getElementById("fullName").value;
+                const ageGroup = document.querySelectorAll('input[name="ageGroup"]:checked');
+                const browser = document.querySelectorAll('input[name="browser"]:checked');
+                const moviePreference = document.getElementById("moviePreferences").value;
+                const outputArea = document.getElementById("outputArea");
+    
+                result.innerHTML = '';
+    
+                if (!name) {
+                    result.innerHTML += '<p class="error">Please check if you entered your full name.</p>';
+                }
+                if (ageGroup.length === 0) {
+                    result.innerHTML += '<p class="error">Please check if you selected your age group.</p>';
+                }
+                if (browser.length === 0) {
+                    result.innerHTML += '<p class="error">Please check if you selected a browser.</p>';
+                }
+                if (!moviePreference) {
+                    result.innerHTML += '<p class="error">Please check if you selected a movie preference.</p>';
+                }
+
+                if (name && ageGroup > 0 && browser.length > 0 && moviePreference) {
+
+                    result.innerHTML = '<p>Thanks, your data was submitted!</p>';
+
+                    return false; 
+                }
+    
+                return false; 
+            }
+    
+        </script>
+
+    </body>
+</html>       
