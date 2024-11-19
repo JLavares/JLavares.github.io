@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Homework 6 Part 2 JavaScript Exercise">
+        <link rel="stylesheet" href="styles.css">
+        <title>Lavares Homework 6 Webpage</title>
+
+        <style>
+            body {
+                background-image: none;
+                background-color: rgb(177, 126, 93);
+            }
+            
+        </style>
+
+    </head>
+
+    <body>
+    
+        <header>
+          
+            <h1>Homework 6 Part 2</h1>
+           
+        </header>
+
+        <section> 
+
+            <h2>Search The Character!</h2>
+            <p> Go back to the mainpage: <a href="hw1.html">Homepage</a></p>
+            <p> Click on these webpages to go back or explore more: <a href="hw6p1.html">Part 1 </a>, <a href="hw6p3.html">Part 3 </a>, or <a href="hw6.html">HW6 Homepage</a></p>
+            <p> In this webpage, the JavaScript code will search the character</p>
+
+            <div class="body">
+                <form name="myform">
+                    <textarea id="sentence" name="sentence" rows="4" cols="50"></textarea>
+                    <br>
+                    <label for="letter" style="color: white;">Type a letter:</label>
+                    <input type="text" id="letter" name="letter" maxlength="1" size="1">
+                    <input type="button" onclick="search()" value="SUBMIT">
+                    <input type="reset" value="RESET">
+                    <p id ="error"></p>
+                </form>
+                <div id="result" style="color: white; font-size: 20px;"></div>
+            </div>
+
+            <script>
+                function search() {
+                
+                    var sentence, letter, count, key, errorm, result;
+                
+                    sentence = document.forms["myform"].elements["sentence"].value;
+                    letter = document.forms["myform"].elements["letter"].value;
+                    result = document.getElementById("result");
+                    
+                    result.innerHTML = "";
+                    errorm = document.getElementById("error")
+                    errorm.textContent= "";
+
+                    if (letter.length !==1) {
+                        errorm.textContent = "Please enter any letter";
+                        return;
+                    }
+                    
+                    count = 0;
+                    key = letter.toLowerCase()
+                    sentence = sentence.toLowerCase();
+
+                    for(var i=0; i < sentence.length; i++) {
+
+                        if (sentence.charAt(i) == key){
+                            count++;
+                        }
+                    }
+                        if(count == 0) {
+                            var wind = window.open("", "Search", "width=200,height=100");
+                            wind.document.write(`<p> character "${key}" not found.</p>`);
+                            wind.document.write(`<button onclick ="window.close()"> Close</button>`)
+                        }   
+
+                        else{
+                            result.innerHTML = `${count} occurence(s) of "${key}" found.`
+                        }
+
+                }
+             </script>
+
+        </section>
+
+    </body>
+</html>      

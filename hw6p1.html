@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Homework 6 Part 1 JavaScript Exercise">
+        <link rel="stylesheet" href="styles.css">
+        <title>Lavares Homework 6 Webpage</title>
+
+        <style>
+            body {
+                background-image: none;
+                background-color: rgb(177, 126, 93);
+            }
+            
+        </style>
+
+    </head>
+
+    <body>
+    
+        <header>
+          
+            <h1>Homework 6 Part 1</h1>
+           
+        </header>
+
+        <section> 
+
+            <h2>Decimals!</h2>
+            <p> Go back to the mainpage: <a href="hw1.html">Homepage</a></p>
+            <p> Click on these webpages to go back or explore more: <a href="hw6p2.html">Part 2 </a>, <a href="hw6p3.html">Part 3 </a>, or <a href="hw6.html">HW6 Homepage</a></p>
+            <p> In this webpage, the Javascript code will be calculating decimal numbers</p>
+
+            <div class="body">
+                <form name="myform">
+                    <table>
+                        <tr>
+                            <td><label for="num1">Type Number:</label>:</td>
+                            <td><input type="text" name="num1" id="num1" size="10"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="rounded">Round to the nearest integer</label>:</td>
+                            <td><input type="text" id="rounded" name="result0" size="10" readonly></td>
+                        </tr>
+                        <tr>
+                            <td><label for="squareroot">Square root rounded to integer</label>:</td>
+                            <td><input type="text" id="squareroot" name="result1" size="10" readonly></td>
+                        </tr>
+                        <tr>
+                            <td><label for="rounded10th">Rounded to the nearest 10th position</label>:</td>
+                            <td><input type="text" id="rounded10th" name="result2" size="10" readonly></td>
+                        </tr>
+                        <tr>
+                            <td><label for="rounded100th">Rounded to the nearest 100th position</label>:</td>
+                            <td><input type="text" id="rounded100th" name="result3" size="10" readonly></td>
+                        </tr>
+                        <tr>
+                            <td><label for="rounded1000th">Rounded to the nearest 1000th position</label>:</td>
+                            <td><input type="text" id="rounded1000th" name="result4" size="10" readonly></td>
+                        </tr>
+                    </table>
+                    <br>
+                    <input type="button" onclick="process()" value="SUBMIT">
+                    <input type="reset" value="RESET">
+                    <p id ="error"></p>
+                </form>
+            </div>
+
+            <script>
+                function process() {
+                
+                    var number1, n1, errorm, rounded, squareroot, rounded10th, rounded100th, rounded1000th;
+                
+                    number1 = document.forms["myform"].elements["num1"].value;
+
+                    n1 = parseFloat(number1);
+                    
+                    errorm = document.getElementById("error")
+                    errorm.textContent= "";
+
+                    if (isNaN(n1) || !number1.includes('.') || number1.split('.')[1].length < 4) {
+                        errorm.textContent = "Please enter at least 4 decimal numbers";
+                        return;
+                    }
+    
+    
+                    rounded = Math.round(n1); 
+                    squareroot = Math.round(Math.sqrt(n1)); 
+                    rounded10th = parseFloat(n1.toFixed(1));
+                    rounded100th = parseFloat(n1.toFixed(2)); 
+                    rounded1000th = parseFloat(n1.toFixed(3)); 
+    
+                    document.forms["myform"].elements["result0"].value = rounded;
+                    document.forms["myform"].elements["result1"].value = squareroot;
+                    document.forms["myform"].elements["result2"].value = rounded10th;
+                    document.forms["myform"].elements["result3"].value = rounded100th;
+                    document.forms["myform"].elements["result4"].value = rounded1000th;
+                }
+             </script>
+
+        </section>
+
+    </body>
+</html>       
