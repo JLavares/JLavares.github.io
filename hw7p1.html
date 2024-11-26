@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Homework 7 Part 1 JavaScript Exercise">
+        <link rel="stylesheet" href="stylehw7.css">
+        <title>Lavares Homework 7 Webpage</title>
+
+    </head>
+
+    <body>
+    
+        <header>
+          
+            <h1>Homework 7 Part 1</h1>
+           
+        </header>
+
+        <section> 
+
+            <h2>Customization!</h2>
+            <p> Go back to the mainpage: <a href="hw1.html">Homepage</a></p>
+            <p> Click on these webpages to go back or explore more: <a href="hw7p2.html">Part 2 </a> or <a href="hw7.html">HW7 Homepage</a></p>
+            <p> In this webpage, the user will customize the 3 paragraphs using the radio, checkbox, and a dropdown list </p>
+
+            <div id="customize" class="customize-box">
+                <p>I like playing video games and watching tv shows.</p>
+                <p>I am a freshman in College of San Mateo and currently studying coding.</p>
+                <p> I am learning about Java and JavaScript in my first semester</p>
+            </div>
+                
+            <form name="userForm" oninput="applyChanges()">
+
+                <label style="font-size: large;">Customize The Text</label><br> <br>
+
+                <label>Background Color:</label><br>
+                <label for="red">Red</label>
+                <input type="radio" id="red" name="color" value="red">
+                <label for="blue">Blue</label>
+                <input type="radio" id="blue" name="color" value="blue">
+            
+                        
+                <br> <br> <label>Format:</label><br>
+                <label for="underline">Underline</label>
+                <input type="checkbox" id="underline" name="textStyle" value="underline">
+                <label for="bold">Bold</label>
+                <input type="checkbox" id="bold" name="textStyle" value="bold">
+                <label for="italic">Italic</label>
+                <input type="checkbox" id="italic" name="textStyle" value="italic">
+
+                <br> <br> <label for="fontSize">Font Size:</label><br>
+                    <select id="fontSize">
+                        <option value="1em">Small</option>
+                        <option value="1.5em">Medium</option>
+                        <option value="2em">Large</option>
+                    </select>
+            </form>
+
+            <script>
+                function applyChanges() {
+                    var customizeBox = document.getElementById("customize");
+
+                    customizeBox.classList.remove("red", "blue", "underline", "bold", "italic", "small", "medium", "large");
+        
+                    var selectedColor = document.querySelector('input[name="color"]:checked');
+                    if (selectedColor) {
+                        customizeBox.classList.add(selectedColor.value);
+                    }
+        
+                    if (document.getElementById('underline').checked) {
+                        customizeBox.classList.add("underline");
+                    }
+                    if (document.getElementById('bold').checked) {
+                        customizeBox.classList.add("bold");
+                    }
+                    if (document.getElementById('italic').checked) {
+                        customizeBox.classList.add("italic");
+                    }
+        
+                    var fontSize = document.getElementById('fontSize').value;
+                    if (fontSize) {
+                        customizeBox.style.fontSize = fontSize; 
+                    }
+                }
+             </script>
+
+        </section>
+
+    </body>
+</html>       
