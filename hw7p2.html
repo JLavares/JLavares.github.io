@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Homework 7 Part 2 JavaScript Exercise">
+        <link rel="stylesheet" href="styles.css">
+        <title>Lavares Homework 7 Webpage</title>
+
+        <style>
+            body {
+                background-image: none;
+                background-color: rgb(177, 126, 93);
+            }
+            
+        </style>
+
+    </head>
+
+    <body>
+    
+        <header>
+          
+            <h1>Homework 7 Part 2</h1>
+           
+        </header>
+
+        <section> 
+
+            <h2>Cookies!</h2>
+            <p> Go back to the mainpage: <a href="hw1.html">Homepage</a></p>
+            <p> Click on these webpages to go back or explore more: <a href="hw7p1.html">Part 1 </a> or <a href="hw7.html">HW7 Homepage</a></p>
+            <p> In this webpage, the JavaScript code will use cookies to remember your data here</p>
+
+            <div class="form">
+                <form id="myform" name="myform">
+                    <p>
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" title="Please type your name carefully" size="20" maxlength="20" onfocus="checkCookie()">
+                    </p>
+                    <p>
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" title="Please type your username carefully" size="20" maxlength="20">
+                    </p>
+                    
+                    <input type="button" value="Submit" onclick="checkCookie();">
+                    <input type="reset" value="Reset" onclick="resetForm();"><br><br>
+                    
+                    <input type="button" value="Delete cookies" onclick="deleteCookie();">
+                    <p id="msg"></p>
+                </form>
+            </div>
+
+            <script>
+                function getCookie(c_name) {
+                    if (document.cookie.length > 0) {
+                        let c_start = document.cookie.indexOf(c_name + "=");
+                        if (c_start != -1) {
+                            c_start = c_start + c_name.length + 1;
+                            let c_end = document.cookie.indexOf(";", c_start);
+                            if (c_end == -1) c_end = document.cookie.length;
+                            return decodeURIComponent(document.cookie.substring(c_start, c_end));
+                        }
+                    }
+                    return "";
+                }
+            
+                function setCookie(c_name, value) {
+                    document.cookie = c_name + "=" + encodeURIComponent(value) + ";path=/"; 
+                }
+            
+                function checkCookie() {
+                    let name = getCookie('name');
+                    let username = getCookie('username');
+                    let inputName = document.myform.name.value;
+                    let inputUsername = document.myform.username.value;
+            
+                    if (name != null && name != "" && username != null && username != "") {
+                        if (inputName === "" && inputUsername === "") {
+                            document.getElementById('msg').innerHTML = 'Welcome back ' + name + ' (' + username + ')!';
+                            document.forms["myform"].elements["name"].value = name;
+                            document.forms["myform"].elements["username"].value = username;
+                            document.forms["myform"].elements["name"].blur();
+                            document.forms["myform"].elements["username"].blur();
+                        }
+                    } else {
+                        name = document.myform.name.value;
+                        username = document.myform.username.value;
+                        if (name != null && name != "" && username != null && username != "") {
+                            setCookie('name', name);  
+                            setCookie('username', username); 
+                            document.getElementById('msg').innerHTML = 'Welcome for the first time, ' + name + ' (' + username + ')!';
+                            document.forms["myform"].elements["name"].blur();
+                            document.forms["myform"].elements["username"].blur();
+                        }
+                    }
+                }
+            
+                function deleteCookie() {
+                    let name = getCookie('name');
+                    let username = getCookie('username');
+                    if (name != null && name != "" && username != null && username != "") {
+                        document.cookie = "name=; path=/";  
+                        document.cookie = "username=; path=/";  
+                        document.forms["myform"].elements["name"].value = ""; 
+                        document.forms["myform"].elements["username"].value = ""; 
+                        document.getElementById('msg').innerHTML = 'Cookies deleted for ' + name + ' (' + username + ')!';
+                    }
+                }
+            
+                function resetForm() {
+                    document.forms["myform"].elements["name"].value = "";
+                    document.forms["myform"].elements["username"].value = "";
+                    document.getElementById('msg').innerHTML = '';  
+                }
+            </script>
+
+        </section>   
+
+    </body>
+</html>      
