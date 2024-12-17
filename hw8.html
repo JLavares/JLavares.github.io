@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" Webpage for the list of assignments of Joaquin Lavares">
+    <link rel="stylesheet" href="styles.css">
+    <title>Lavares JavaScript Homework 8 Webpage</title>
+
+    <style>
+      body {
+        background-image: none;
+        background-color: rgb(156, 90, 4);
+      }
+      
+      table,th,td {
+        border : 1px solid black;
+        border-collapse: collapse;
+      }
+      th,td {
+        padding: 5px;
+      }
+
+    </style>
+    
+  </head>
+
+  <body>
+    <h1>Homework 8 - AJAX Application</h1>
+    <p><a href="hw1.html">Go Back to HomePage</a></p><br>
+
+    <button type="button" onclick="loadDoc()">Get CD collection</button>
+    <br><br>
+    <table id="demo"></table>
+
+    <script>
+      function loadDoc() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+          myFunction(this);
+        }
+        xhttp.open("GET", "cd_catalog.xml");
+        xhttp.send();
+      }
+      function myFunction(xml) {
+        const xmlDoc = xml.responseXML;
+        const x = xmlDoc.getElementsByTagName("CD");
+        let table="<tr><th>Artist</th><th>Title</th></tr>";
+        for (let i = 0; i <x.length; i++) { 
+          table += "<tr><td>" +
+          x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+          "</td><td>" +
+          x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+          "</td></tr>";
+        }
+        document.getElementById("demo").innerHTML = table;
+      }
+    </script>
+
+    <h2>Explanation of AJAX</h2>
+    <p>In this JavaScript code, there is a use of AJAX but what is it and how is it used? 
+      AJAX or Asynchronous JavaScript and XML enables the user to interact with the page without 
+      needing to reload the whole page when fetching data. With the use of xhttp in this JavaScript code, 
+      this will communicate with the server and fetch the data you need.
+    </p> 
+    <p> const xhttp = new XMLHttpRequest(); will create the object 
+      to send and receive data by executing the onload function. xhttp.open("GET", "cd_catalog.xml"); and xhttp.send(); 
+      will communicate the xml file and the received data will be given to the xmlDoc to place all the elements. 
+      The rest of the JavaScript code under that is about creating the table and formatting it. 
+    </p>
+
+    <h2>REST API</h2>
+    <p>I have selected an API that you're maybe interested to try. 
+      This API is called QRcode Monkey which creates custom QR Codes 
+      that lets the user customize how it looks. This will be helpful if you're
+      trying to create a brand image or making it applealing to create more engagement.
+      The API is free and uses the JSON response format. You may visit their page at 
+      <a href=https://rapidapi.com/qrcode-monkey/api/custom-qr-code-with-logo>QRcode Momkey Page</a> to 
+      access the API key and look at thier documentation <a href=https://www.qrcode-monkey.com/qr-code-api-with-logo>QRcode Monkey Documentation</a>  
+      on how it's implemented.
+    </p>
+  
+  </body>
+</html>
